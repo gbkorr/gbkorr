@@ -4,6 +4,9 @@ About me:
 student  
 these skills/background / I love doing this  
 learning X  
+
+hobbies? flight sim, instruments (need a gallery of these at some point)
+
 <!--
 **gbkorr/gbkorr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -23,7 +26,9 @@ Some of my projects: (with links and images)
 
 A publication: (link arxiv)
 
-A big, fully documented R package: 
+A big, fully documented R package: (need better promo wording lol)
+
+gpu-accelerated SIMPROF package for ecological modeling
 
 Upscaling images from drone footage:
 
