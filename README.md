@@ -5,6 +5,8 @@ student
 these skills/background / I love doing this  
 learning X  
 
+I love documenting and writing about code! (and writing the code itself, of course)
+
 hobbies? flight sim, instruments (need a gallery of these at some point)
 
 <!--
