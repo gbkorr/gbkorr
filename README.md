@@ -24,6 +24,17 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+Check out: [have cute tiny thumbnails for these]
+
+My publication [Dendrites and Pores]()
+
+My R package [rcade](https://gbkorr.github.io/rcade/articles/rcade.html) (fully documented!)
+
+My game [Banana Brawl](https://gbkorr.github.io/Banana-Brawl/) (one of many!)
+
+
+(I do like a less excited, more clinical "here's what I've done", though. Still with the cute thumbnails though :)
+
 Some of my projects: (with links and images)
 
 A publication: (link arxiv)
