@@ -4,6 +4,8 @@ Hello! I'm Gabriel, a Junior at Hampshire College studying various areas in the 
 
 Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
 
+I LOVE writing documentation, and writing the code itself is pretty fun too :P
+
 Check out some of my biggest endeavors: 
 ## (this section should have a better header)
 [have cute tiny thumbnails for these]
