@@ -10,7 +10,7 @@ Check out some of my biggest endeavors:
 ## (this section should have a better header)
 [have cute tiny thumbnails for these]
 
-My publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)  
+My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)  (profile picture is an image of model output)
 
 My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented!
 
