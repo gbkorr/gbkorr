@@ -1,0 +1,12 @@
+name: "Gabriel Broussard Korr"
+navbar:
+  title: "c'est moi"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+      
+      
+      
+      
