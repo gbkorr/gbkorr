@@ -7,6 +7,14 @@ navbar:
     - text: "About"
       href: about.html
       
+    - text: "Projects"
+      icon: fa-gear
+      menu:
+        - text: "Vilmonic Documentary"
+          href: vilmonic.html
+
+  right:
+    - icon: fa-gear
       
       
-      
+#ref: https://yihui.org/rmarkdown/rmarkdown-site
