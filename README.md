@@ -10,13 +10,15 @@ ___
 ### Check out some of my biggest endeavors: 
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)
-[arxiv link] <br>
+[arxiv link]
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! ![](https://badgen.net/static/LoC/1k)![](https://badgen.net/static/Words/20k/3b3)
+<br> 
+
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! ![](https://badgen.net/static/LoC/1k)![](https://badgen.net/static/Words/20k/3b3) 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" />  My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. ![](https://badgen.net/static/LoC/5k) (including sequel)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" />  My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. ![](https://badgen.net/static/LoC/5k) (including sequel) 
 
 <br>
 
@@ -24,14 +26,15 @@ ___
 
 <br>
 
-Skills:
+___
+### Skills:
 Proficient:
 - R, Javascript
 - Documentation and Guides
 
 - 3D Modeling and Printing
 
-Some Experience:
+Novice:
 - Python, C++
 - QGIS
 - basic server hosting
