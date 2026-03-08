@@ -10,13 +10,15 @@ Check out some of my biggest endeavors:
 ## (this section should have a better header)
 [have cute tiny thumbnails for these]
 
-My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)  (profile picture is an image of model output)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)  (profile picture is an image of model output)
 
-My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented!
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented!
 
-My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school.
+<br>
 
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school.
 
+<br>
 
 
 
