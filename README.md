@@ -14,7 +14,7 @@ My upcoming publication introducing [The Triangular Growth Model], a model for f
 
 My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented!
 
-My game [Banana Brawl](https://gbkorr.github.io/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school.
+My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school.
 
 
 
