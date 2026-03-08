@@ -10,7 +10,7 @@ ___
 ### Check out some of my biggest endeavors: 
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)
-[arxiv link]
+[arxiv link] <br>
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! ![](https://badgen.net/static/LoC/1k)![](https://badgen.net/static/Words/20k/3b3)
 
