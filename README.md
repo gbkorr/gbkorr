@@ -6,26 +6,23 @@ Aspirations: I really enjoy research, but someday I'd like to work in industry. 
 
 I LOVE writing documentation, and writing the code itself is pretty fun too :P
 
-Check out some of my biggest endeavors: 
-## (this section should have a better header)
-[have cute tiny thumbnails for these]
+___
+### Check out some of my biggest endeavors: 
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)
+[arxiv link]
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented!
-
-<br>
-
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school.
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! ![](https://badgen.net/static/LoC/1k)![](https://badgen.net/static/Words/20k/3b3)
 
 <br>
 
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" />  My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. ![](https://badgen.net/static/LoC/5k) (including sequel)
 
+<br>
 
-I love documenting and writing about code! (and writing the code itself, of course)
+An "Attenborough-Style" [documentary] on real ecology and evolution observed in a , another old project from high school. ![](https://badgen.net/static/Words/15k/3b3)
 
-hobbies? flight sim, instruments (need a gallery of these at some point)
-
+<br>
 
 Skills:
 Proficient:
@@ -52,6 +49,9 @@ College wasn't challenging enough so I started spending most of my time on proje
 But really, my biggest ... is applying my CS experience to these other fields.
 
 
+Hobbies:
+
+I really like things that let me interact with the world in new ways or connect me with the past. I have a good amount of experience flying aircraft in flight sims (and hopefully real life, someday!). I make my own musical instruments and play quite a handful from around the world--- my favorite genre is old international folk music recorded in the early 1900s. 
 
 
 <!--
@@ -68,9 +68,3 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-
-
-And some smaller projects:  
-a map of my campus's rivers mdae with QGIS  
-a short written documentary on evolution  
-a complete game in Javascript  
