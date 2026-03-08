@@ -20,7 +20,7 @@ ___
 
 <br>
 
-An "Attenborough-Style" [documentary] on real ecology and evolution observed in a , another old project from high school. ![](https://badgen.net/static/Words/15k/3b3)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/vilmonic.png" /> An "Attenborough-Style" [documentary](https://gbkorr.github.io/gbkorr/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. ![](https://badgen.net/static/Words/15k/3b3)
 
 <br>
 
