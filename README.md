@@ -15,13 +15,13 @@ My upcoming publication introducing [The Triangular Growth Model] [link needed](
 
 <br> 
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Words/20k/393)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
 <br>
 My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> ![](https://badgen.net/static/LoC/5k) (including sequel)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/Javascript/orange) (including sequel)
 <br>
 My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. 
 
