@@ -19,7 +19,7 @@ My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/Javascript/orange) (including sequel)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/JavaScript/orange) (including sequel)
 <br>
 My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. 
 
