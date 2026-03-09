@@ -9,12 +9,13 @@ I LOVE writing documentation, and writing the code itself is pretty fun too :P
 ___
 ### Check out some of my biggest endeavors: 
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :)
-[arxiv link]
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> ![](https://badgen.net/static/arXiv/(planned)/b31b1b) 
+<br>
+My upcoming publication introducing [The Triangular Growth Model] [link needed], a model for fractal structures found in nature. I did all the code and most of the writing :)
 
 <br> 
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Words/20k/3b3) 
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Words/20k/393) 
 <br>
 My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! 
 
@@ -26,9 +27,9 @@ My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/vilmonic.png" /> ![](https://badgen.net/static/Words/15k/3b3)
+<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/vilmonic.png" /> ![](https://badgen.net/static/Words/15k/393)
 <br>
-An "Attenborough-Style" [documentary](https://gbkorr.github.io/gbkorr/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. 
+An "Attenborough-Style" written [documentary] [link needed](https://gbkorr.github.io/gbkorr/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. 
 
 <br>
 
