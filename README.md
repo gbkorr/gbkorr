@@ -36,6 +36,7 @@ ___
 Proficient:
 - R, Javascript
 - Documentation and Guides
+- Statistical Modeling and Simulation
 - 3D Modeling and Printing
 
 Novice:
