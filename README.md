@@ -39,9 +39,10 @@ Proficient:
 - Statistical Modeling and Simulation
 - 3D Modeling and Printing
 
-Novice:
+Competent:
 - Python, C++
 - QGIS
+- MacOS/Windows/Linux CLI
 - basic server hosting
 - basic HPC computing
 - basic algorithm optimization with C++/parallelization/GPU acceleration
