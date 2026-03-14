@@ -13,21 +13,21 @@ My upcoming publication introducing [The Triangular Growth Model] [link needed](
 
 <br> 
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
+<a href="https://gbkorr.github.io/rcade"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /></a> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
 <br>
 My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/JavaScript/orange) (including sequel)
+<a href="https://gbkorr.github.io/Banana-Brawl/"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /></a> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/JavaScript/orange) (including sequel)
 <br>
 My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. 
 
 <br>
 
-<img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/vilmonic.png" /> ![](https://badgen.net/static/Words/15k/393) 
+<a href="https://gbkorr.github.io/gbkorr/vilmonic/vilmonic.html"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/vilmonic.png"/></a> ![](https://badgen.net/static/Words/15k/393) 
 <br>
-An "Attenborough-Style" written [documentary] [link needed](https://gbkorr.github.io/gbkorr/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. 
+An "Attenborough-Style" written [documentary](https://gbkorr.github.io/gbkorr/vilmonic/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. 
 
 <br>
 
