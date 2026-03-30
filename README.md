@@ -31,6 +31,10 @@ An "Attenborough-Style" written [documentary](https://gbkorr.github.io/gbkorr/vi
 
 <br>
 
+<a href="https://gbkorr.github.io/r-bites"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/flipphone.jpeg"/></a> ![](https://badgen.net/static/Language/R/orange)
+<br>
+My blogs on [R Bites](https://gbkorr.github.io/r-bites/), where I've succeeded in [pushing a git commit from a flip phone](https://gbkorr.github.io/r-bites/flipphone-r/flipphone-r.html) and [rendering my webcam live in the R console](https://gbkorr.github.io/r-bites/conference/conference.html).
+
 ___
 ### Skills:
 Proficient:
@@ -45,7 +49,7 @@ Competent:
 - MacOS/Windows/Linux CLI
 - basic server hosting
 - basic HPC computing
-- basic algorithm optimization with C++/parallelization/GPU acceleration
+- basic algorithm optimization with parallelization/GPU acceleration
 - electronics and soldering
 
 
