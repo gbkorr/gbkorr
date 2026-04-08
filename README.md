@@ -9,7 +9,7 @@ ___
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> ![](https://badgen.net/static/arXiv/(planned)/b31b1b) 
 <br>
-My upcoming publication introducing [The Triangular Growth Model], a model for fractal structures found in nature. I did all the code and most of the writing :) Currently in peer review. [Poster]
+My upcoming publication introducing "The Triangular Growth Model", a model for fractal structures found in nature. I did all the code and most of the writing :) Currently in peer review.
 
 <br> 
 
