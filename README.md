@@ -46,7 +46,7 @@ Proficient:
 Competent:
 - Python, C++
 - QGIS
-- MacOS/Windows/Linux CLI
+- Unix
 - basic server hosting
 - basic HPC computing
 - basic algorithm optimization with parallelization/GPU acceleration
