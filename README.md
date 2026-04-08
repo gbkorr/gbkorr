@@ -42,6 +42,7 @@ Proficient:
 - Documentation and Guides
 - Statistical Modeling and Simulation
 - 3D Modeling and Printing
+- Spanish
 
 Competent:
 - Python, C++
