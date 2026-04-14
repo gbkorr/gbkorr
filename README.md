@@ -41,13 +41,13 @@ Proficient:
 - R, Javascript
 - Documentation and Guides
 - Statistical Modeling and Simulation
+- Unix CLI / OS Management
 - 3D Modeling and Printing
 - Spanish
 
 Competent:
 - Python, C++
 - QGIS
-- Unix
 - basic server hosting
 - basic HPC computing
 - basic algorithm optimization with parallelization/GPU acceleration
