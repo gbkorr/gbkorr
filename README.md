@@ -2,6 +2,8 @@ Hello! I'm Gabriel, a Junior at Hampshire College studying various areas in the 
 
 Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
 
+I'm particularly interested in "minimalist solutions"— solving problems robustly using the simplest approach and materials possible, especially in the context of sensing.
+
 I LOVE writing documentation, and writing the code itself is pretty fun too :P
 
 ___
