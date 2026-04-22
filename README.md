@@ -1,4 +1,4 @@
-Hello! I'm Gabriel, a Junior at Hampshire College studying various areas in the CS/Math/Data world. I specialize in software and in learning new things quickly— I love a good challenge!
+Hello! I'm Gabriel, a rising Senior at Hampshire College studying various areas in the CS/Math/Data world. I specialize in software and in learning new things quickly— I love a good challenge!
 
 Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
 
@@ -6,8 +6,16 @@ I'm particularly interested in "minimalist solutions"— solving problems robust
 
 I LOVE writing documentation, and writing the code itself is pretty fun too :P
 
-___
-### Check out some of my biggest endeavors: 
+---
+
+### [Check out my Blog](https://gbkorr.github.io/r-bites), "R Bites"
+*Topics*:
+* Android hacking: ["Pushing a git commit from a flip phone"](https://gbkorr.github.io/r-bites/flipphone-r/flipphone-r.html)
+* Full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html).
+* OS Fun: "A decent $50 linux laptop!?" (coming soon)
+
+
+### *Some of my Big Projects:*
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> ![](https://badgen.net/static/arXiv/(planned)/b31b1b) 
 <br>
@@ -33,11 +41,8 @@ An "Attenborough-Style" written [documentary](https://gbkorr.github.io/gbkorr/vi
 
 <br>
 
-<a href="https://gbkorr.github.io/r-bites"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/flipphone.jpeg"/></a> ![](https://badgen.net/static/Language/R/orange)
-<br>
-My blogs on [R Bites](https://gbkorr.github.io/r-bites/), where I've succeeded in [pushing a git commit from a flip phone](https://gbkorr.github.io/r-bites/flipphone-r/flipphone-r.html) and [rendering my webcam live in the R console](https://gbkorr.github.io/r-bites/conference/conference.html).
-
 ___
+
 ### Skills:
 Proficient:
 - R, Javascript
@@ -67,7 +72,7 @@ But really, my biggest strength and interest is applying my CS experience to dif
 
 #### Hobbies:
 
-I really like things that let me interact with the world in new ways or connect me with the past. I have a good amount of experience flying aircraft in flight sims (and hopefully real life, someday!). I make my own musical instruments and play quite a handful from around the world--- my favorite genre is old international folk music recorded in the early 1900s. 
+I really like things that let me interact with the world in new ways or connect me with the past. I have a good amount of experience flying aircraft in flight sims (and hopefully real life, someday!). I make my own musical instruments and play quite a handful from around the world— my favorite genre is old international folk music recorded in the early 1900s. 
 
 
 <!--
