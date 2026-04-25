@@ -55,6 +55,7 @@ Proficient:
 Competent:
 - Python, C++
 - QGIS
+- running LLMs locally, offline
 - basic server hosting
 - basic HPC computing
 - basic algorithm optimization with parallelization/GPU acceleration
