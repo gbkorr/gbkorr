@@ -12,7 +12,7 @@ I LOVE writing documentation, and writing the code itself is pretty fun too :P
 *Topics*:
 * Android hacking: ["Pushing a git commit from a flip phone"](https://gbkorr.github.io/r-bites/flipphone-r/flipphone-r.html)
 * Full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html).
-* OS Fun: "A decent $50 linux laptop!?" (coming soon)
+* OS Fun: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
 
 
 ### *Some of my Big Projects:*
