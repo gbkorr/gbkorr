@@ -9,25 +9,24 @@ I LOVE writing documentation, and writing the code itself is pretty fun too :P
 ---
 
 ### [Check out my Blog](https://gbkorr.github.io/r-bites), "R Bites"
-*Topics*:
-* Android hacking: ["Pushing a git commit from a flip phone"](https://gbkorr.github.io/r-bites/flipphone-r/flipphone-r.html)
-* Full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html).
-* OS Fun: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
+*Featured Articles*:
+* A full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html).
+* A 3,800-word guide: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
 
 
 ### *Some of my Big Projects:*
+
+<a href="https://gbkorr.github.io/rcade"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /></a> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
+<br>
+My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented, plus eight [articles](https://gbkorr.github.io/rcade/articles/rcade.html#directory) on the systems that make the package work.
+
+<br>
 
 <img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/TGM.png" /> ![](https://badgen.net/static/arXiv/(planned)/b31b1b) 
 <br>
 My upcoming publication introducing "The Triangular Growth Model", a model for fractal structures found in nature. I did all the code and most of the writing :) Currently in peer review.
 
 <br> 
-
-<a href="https://gbkorr.github.io/rcade"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /></a> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
-<br>
-My R package [rcade](https://gbkorr.github.io/rcade), which lets users play and make games to run in base R. Fully documented! 
-
-<br>
 
 <a href="https://gbkorr.github.io/Banana-Brawl/"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /></a> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/JavaScript/orange) (including [sequel](https://github.com/gbkorr/Banana-Brawl-Bonanza))
 <br>
@@ -41,6 +40,7 @@ An "Attenborough-Style" written [documentary](https://gbkorr.github.io/gbkorr/vi
 
 <br>
 
+> Note: All my writing is my own! AI is useful, but I always write without it.
 ___
 
 ### Skills:
