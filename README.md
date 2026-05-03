@@ -10,7 +10,7 @@ I LOVE writing documentation, and writing the code itself is pretty fun too :P
 
 ### [Check out my Blog](https://gbkorr.github.io/r-bites), "R Bites"
 *Featured Articles*:
-* A full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html).
+* A full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html)
 * A 3,800-word guide: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
 
 
