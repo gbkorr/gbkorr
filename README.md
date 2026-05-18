@@ -46,19 +46,18 @@ ___
 ### Skills:
 Proficient:
 - R, Javascript
+- Unix
 - Documentation and Guides
 - Statistical Modeling and Simulation
-- Unix CLI / OS Management
 - 3D Modeling and Printing
 - Spanish
 
 Competent:
-- Python, C++
+- Python
 - QGIS
-- running LLMs locally, offline
+- local AI
 - basic server hosting
-- basic HPC computing
-- basic algorithm optimization with parallelization/GPU acceleration
+- data engineering and optimization
 - electronics and soldering
 
 
