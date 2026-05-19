@@ -30,7 +30,7 @@ My upcoming publication introducing "The Triangular Growth Model", a model for f
 
 <a href="https://gbkorr.github.io/Banana-Brawl/"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/banana.png" /></a> ![](https://badgen.net/static/LoC/5k) ![](https://badgen.net/static/Language/JavaScript/orange) (including [sequel](https://github.com/gbkorr/Banana-Brawl-Bonanza))
 <br>
-My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/) (one of many!), an old Javsacript project from back in high school. 
+My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/#banana-brawl) (one of many!), an old Javsacript project from back in high school. 
 
 <br>
 
