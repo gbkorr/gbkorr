@@ -1,4 +1,4 @@
-Hello! I'm Gabriel, a rising Senior at Hampshire College studying various areas in the CS/Math/Data world. I specialize in software and in learning new things quickly— I love a good challenge!
+Hello! I'm Gabriel, a Senior at Hampshire College studying various areas in the CS/Math/Data world. I specialize in software and in learning new things quickly— I love a good challenge!
 
 Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
 
