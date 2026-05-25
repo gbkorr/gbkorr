@@ -2,7 +2,7 @@ Hello! I'm Gabriel, a Senior at Hampshire College studying various areas in the 
 
 Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
 
-Areas of Interest: I'm particularly interested in "minimalist solutions"— solving problems robustly using the simplest approach and materials possible. Especially in the context of sensing, like cameras and radio.
+Areas of Interest: I'm particularly interested in "minimalist solutions"— solving problems robustly using the simplest approach and materials possible. Especially in the context of sensing, like cameras and radio. Aerospace is probably the field that draws me the most, but anything with fun challenges is great.
 
 I LOVE writing documentation, and writing the code itself is pretty fun too :P
 
