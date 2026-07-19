@@ -1,20 +1,15 @@
-Hello! I'm Gabriel, a Senior at Hampshire College studying various areas in the CS/Math/Data world. I specialize in software and in learning new things quickly— I love a good challenge!
+I like writing and coding. Check out my [blog](https://gbkorr.github.io/r-bites)!
 
-Aspirations: I really enjoy research, but someday I'd like to work in industry. I find it very fulfilling to problem-solve and get things done.
-
-Areas of Interest: I'm particularly interested in "minimalist solutions"— solving problems robustly using the simplest approach and materials possible. Especially in the context of sensing, like cameras and radio. Aerospace is probably the field that draws me the most, but anything with fun challenges is great.
-
-I LOVE writing documentation, and writing the code itself is pretty fun too :P
-
----
-
-### [Check out my Blog](https://gbkorr.github.io/r-bites), "R Bites"
 *Featured Articles*:
-* A full-stack minimalist python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html)
-* A 3,800-word guide: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
+* A guide to running Linux on a phone: ["A decent $50 linux laptop!?"](https://gbkorr.github.io/r-bites/linux-phone/linux-phone.html)
+* An LLM running in pure R, written from scratch: ["GGUFr"](https://gbkorr.github.io/r-bites/ggufr/ggufr.html)
+* Using Morse Code to run Bash on a Linux SBC: ["Morstdio"](https://gbkorr.github.io/r-bites/morstdio/morstdio.html)
+* A minimalist, full-stack python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html)
 
+> Note: All writing and code is my own! I avoid using AI for personal projects, though I have experience with it in professional contexts.
 
-### *Some of my Big Projects:*
+### *Big Projects:*
+
 
 <a href="https://gbkorr.github.io/rcade"><img align='left' width="100" height="50" src="https://github.com/gbkorr/gbkorr/blob/main/profile/rcade.png" /></a> ![](https://badgen.net/static/Words/20k/393) ![](https://badgen.net/static/LoC/1k) ![](https://badgen.net/static/Language/R/orange)
 <br>
@@ -39,41 +34,6 @@ My game [Banana Brawl](https://github.com/gbkorr/Banana-Brawl/#banana-brawl) (on
 An "Attenborough-Style" written [documentary](https://gbkorr.github.io/gbkorr/vilmonic/vilmonic.html) on real ecology and evolution observed in a simulator, another old project from high school. 
 
 <br>
-
-> Note: All my writing is my own! AI is useful, but I always write without it.
-___
-
-### Skills:
-Proficient:
-- R, Javascript
-- Unix
-- Documentation and Guides
-- Statistical Modeling and Simulation
-- 3D Modeling and Printing
-- Spanish
-
-Competent:
-- Python
-- QGIS
-- local AI
-- basic server hosting
-- data engineering and optimization
-- electronics and soldering
-
-
-### Education:
-
-College wasn't challenging enough so I started spending most of my time on projects and research. At this point I self-study most things (there's a lot of great textbooks online!)— between that and school, here's a list some of the things I've covered academically:
-
-- Advanced Statistics and Modeling, Image Processing and Interpretation, GIS, Signals Analysis, Pure Math, Bioinformatics, Evolutionary Bio, Anthropology...
-
-But really, my biggest strength and interest is applying my CS experience to different fields.
-
-
-#### Hobbies:
-
-I really like things that let me interact with the world in new ways or connect me with the past. I have a good amount of experience flying aircraft in flight sims (and hopefully real life, someday!). I make my own musical instruments and play quite a handful from around the world— my favorite genre is old international folk music recorded in the early 1900s. 
-
 
 <!--
 **gbkorr/gbkorr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
