@@ -462,6 +462,7 @@ $('aboutOverlay').addEventListener('click', (e) => {
 });
 $('randomSeed').addEventListener('click', () => {
   $('rngSeed').value = String(1 + Math.floor(Math.random() * 9999));
+  restart();
 });
 function applyPreset(overrides) {
   const p = { ...PRESET_BASE, ...overrides };
