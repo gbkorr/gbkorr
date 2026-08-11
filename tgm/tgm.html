@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TGM test canvas</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; display: flex; height: 100vh;
+    font-family: system-ui, sans-serif; font-size: 13px;
+    background: #ececea; color: #222;
+  }
+  #panel {
+    width: 280px; flex: none; padding: 14px 16px; overflow-y: auto;
+    background: #fafafa; border-right: 1px solid #ddd;
+  }
+  #panel h1 { font-size: 15px; margin: 0 0 6px; }
+  #credits { margin: 0 0 10px; color: #666; font-size: 12px; line-height: 1.5; }
+  #aboutBtn { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+  #aboutIcon {
+    width: 14px; height: 14px; flex: none; border-radius: 50%;
+    border: 1.5px solid currentColor; display: inline-flex;
+    align-items: center; justify-content: center;
+    font-weight: 700; font-size: 10px; line-height: 1;
+  }
+  #aboutOverlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #aboutOverlay[hidden] { display: none; }
+  #aboutBox {
+    position: relative; background: #fff; border: 1px solid #ccc; border-radius: 6px;
+    padding: 18px 20px; width: min(480px, 90vw); max-height: 70vh; overflow-y: auto;
+  }
+  #aboutClose { position: absolute; top: 6px; right: 6px; }
+  #aboutText { white-space: pre-wrap; }
+  fieldset { border: 1px solid #ddd; border-radius: 4px; margin: 0 0 12px; padding: 8px 10px; }
+  legend { font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 0.05em; }
+  .row { display: flex; justify-content: space-between; align-items: center; margin: 5px 0; }
+  .row input[type=number], .row input[type=text] { flex: none; width: 62px; }
+  .row input[type=range] { width: 150px; }
+  .row.param label { flex: none; width: 76px; }
+  .row.param input[type=range] { flex: 1 1 0; width: 0; min-width: 0; margin: 0 8px; }
+  .row.divider { border-top: 1px solid #ddd; padding-top: 8px; margin-top: 8px; }
+  button { padding: 3px 10px; margin: 2px 4px 2px 0; }
+  #stats { font-size: 12px; line-height: 1.6; color: #444; white-space: pre; }
+  #stage { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
+  canvas { background: #fff; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+  <div id="panel">
+    <h1>Triangular Growth Model Demo</h1>
+    <p id="credits">Model: Korr and Mulder<br>Webpage: Fable 5<br>11 August 2026</p>
+    <button id="aboutBtn" type="button"><span id="aboutIcon">i</span>About</button>
+
+    <fieldset>
+      <legend>Run</legend>
+      <div>
+        <button id="restart">Restart</button>
+        <button id="pause">Pause</button>
+      </div>
+      <div class="row"><label for="speed">sim speed</label><input id="speed" type="range" min="0" max="22" value="12"></div>
+      <div class="row"><span>steps/sec cap</span><span id="speedLabel"></span></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Presets</legend>
+      <button id="presetDendritic">Dendritic</button>
+      <button id="presetPorous">Porous</button>
+      <button id="presetFilamentous">Filamentous</button>
+      <button id="presetRoots">Roots</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Parameters (applied on restart)</legend>
+      <div class="row param"><label for="linkRange">link_range</label><input id="linkRangeSlider" type="range" min="0" max="1000"><input id="linkRange" type="number" step="0.01" value="0.18"></div>
+      <div class="row param"><label for="mobility">mobility</label><input id="mobilitySlider" type="range" min="0" max="1000"><input id="mobility" type="number" step="0.01" value="0.04"></div>
+      <div class="row param"><label for="contraction">contraction</label><input id="contractionSlider" type="range" min="0" max="1000"><input id="contraction" type="number" step="0.1" value="1"></div>
+      <div class="row param"><label for="cohesion">cohesion</label><input id="cohesionSlider" type="range" min="0" max="1000"><input id="cohesion" type="number" step="0.05" value="0"></div>
+      <div class="row param"><label for="branching">branching</label><input id="branchingSlider" type="range" min="0" max="1000"><input id="branching" type="number" step="0.05" value="1"></div>
+      <div class="row param"><label for="genesis">genesis</label><input id="genesisSlider" type="range" min="0" max="61" step="1"><input id="genesis" type="text" value="0"></div>
+      <div class="row param divider"><label for="bounds">bounds</label><input id="boundsSlider" type="range" min="0" max="1000"><input id="bounds" type="number" step="1" value="8"></div>
+      <div class="row"><label for="rngSeed">RNG seed</label><button id="randomSeed">randomize</button><input id="rngSeed" type="number" step="1" value="1"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Display</legend>
+      <div class="row"><label for="drawMode">draw mode</label><select id="drawMode">
+        <option value="links" selected>Links</option>
+        <option value="triangles">Triangles</option>
+        <option value="network">Network</option>
+        <option value="weighted">Weighted Network</option>
+      </select></div>
+      <div class="row"><label for="showFree">show free particles</label><input id="showFree" type="checkbox" checked></div>
+      <div id="thicknessControls" hidden>
+        <div class="row param"><label for="thickS">scale (s)</label><input id="thickSSlider" type="range" min="0" max="1000"><input id="thickS" type="number" step="any" value="0.02"></div>
+        <div class="row param"><label for="thickMin">min weight</label><input id="thickMinSlider" type="range" min="0" max="1000"><input id="thickMin" type="number" step="0.1" value="1"></div>
+        <div class="row param"><label for="thickMax">max weight</label><input id="thickMaxSlider" type="range" min="0" max="1000"><input id="thickMax" type="number" step="0.5" value="6"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Stats</legend>
+      <div id="stats"></div>
+    </fieldset>
+  </div>
+
+  <div id="stage"><canvas id="canvas"></canvas></div>
+
+  <div id="aboutOverlay" hidden>
+    <div id="aboutBox">
+      <button id="aboutClose" type="button">&times;</button>
+      <div id="aboutText">Loading&hellip;</div>
+    </div>
+  </div>
+
+  <script src="tgm.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
