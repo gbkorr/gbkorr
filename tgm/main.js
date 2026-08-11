@@ -14,8 +14,8 @@ const PRESET_BASE = {
   thickS: 0.002, thickMin: 1, thickMax: 12,
 };
 const PRESETS = {
-  dendritic: { mobility: 2 },
-  porous: { cohesion: 0.4, mobility: 0.1 },
+  dendritic: { mobility: 1 },
+  porous: { cohesion: 0.4, mobility: 0.1, bounds: 4 },
   filamentous: { branching: 0.05, speed: 1000 },
   roots: { drawMode: 'weighted', thickS: 0.005, thickMin: 0.5, thickMax: 12, genesis: 10 ** -5 },
 };
