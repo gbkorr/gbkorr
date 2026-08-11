@@ -1,1 +1,6 @@
-About: todo
+This is an implementation of the Triangular Growth Model as described in our upcoming paper Korr and Mulder 20XX.
+Javascript implementation and webpage built with Fable 5 and some common sense.
+
+Source: https://github.com/gbkorr/gbkorr/tree/main/tgm
+Hand-coded R implementation with function support: https://github.com/gbkorr/TGM
+
