@@ -441,25 +441,6 @@ for (const id of ['thickMin', 'thickMax']) {
   $(id + 'Slider').addEventListener('input', () => syncThickPair(id));
   $(id).addEventListener('change', () => syncThickPair(id));
 }
-// About popup: content lives in about.txt next to the page. Note fetch of a
-// local file is blocked on file:// in most browsers — needs an HTTP server.
-let aboutLoaded = false;
-$('aboutBtn').addEventListener('click', async () => {
-  $('aboutOverlay').hidden = false;
-  if (aboutLoaded) return;
-  try {
-    const res = await fetch('about.txt');
-    if (!res.ok) throw new Error(res.status);
-    $('aboutText').textContent = await res.text();
-    aboutLoaded = true;
-  } catch {
-    $('aboutText').textContent = 'Could not load about.txt (this page needs to be served over HTTP).';
-  }
-});
-$('aboutClose').addEventListener('click', () => { $('aboutOverlay').hidden = true; });
-$('aboutOverlay').addEventListener('click', (e) => {
-  if (e.target === $('aboutOverlay')) $('aboutOverlay').hidden = true;
-});
 $('randomSeed').addEventListener('click', () => {
   $('rngSeed').value = String(1 + Math.floor(Math.random() * 9999));
   restart();
