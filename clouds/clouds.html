@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clouds</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+(function () {
+  'use strict';
+  const q = new URLSearchParams(location.search);
+  const num = (k, d) => { const v = parseFloat(q.get(k)); return Number.isFinite(v) ? v : d; };
+  const flag = (k) => q.has(k) && q.get(k) !== '0' && q.get(k) !== 'false';
+
+  /* --- config: mirrors the CLI flags; preset first so explicit params win --- */
+  const scene = {};
+  if (q.get('preset') === 'fixed') Object.assign(scene, { wind: 0.3, elevation: 0.6, yaw: 270 });
+  for (const k of ['coverage', 'wind', 'elevation', 'height', 'yaw', 'pitch', 'azimuth'])
+    if (q.has(k)) scene[k] = num(k, 0);
+  const SUN = { noon: 68, afternoon: 20, golden: 10, sunset: 2.5 };
+  const time = q.get('time');
+  if (time === 'storm') scene.storm = 1;
+  else if (time in SUN) scene.sun_elev = SUN[time];
+  if (flag('flight')) scene.flight = 1;
+  const cfg = {
+    scene,
+    fps: Math.min(60, Math.max(1, num('fps', 20))),
+    quality: Math.min(512, Math.max(10, num('quality', 32))),
+    seed: q.has('seed') ? (num('seed', 0) >>> 0) : (Date.now() / 1000) >>> 0,
+    ascii: flag('ascii'),
+    mono: flag('mono'),
+    ramp: (q.get('ramp') || '').length >= 2 ? q.get('ramp') : ' .:;*oO#%@',
+  };
+  const blocks = !cfg.ascii && !cfg.mono;
+  /* cell size in CSS px; terminal cells are ~1:2 */
+  const cellW = Math.max(2, num('cell', 9)), cellH = cellW * 2;
+
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d', { alpha: false });
+  let dpr = 1, cols = 0, rows = 0, pxW = 0, pxH = 0, prev = null;
+
+  function grid() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    const c = Math.min(240, Math.max(20, Math.floor(w / cellW)));
+    const r = Math.min(100, Math.max(8, Math.floor(h / cellH)));
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    /* stretch the grid to fill the viewport exactly */
+    pxW = canvas.width / c; pxH = canvas.height / r;
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    prev = null;
+    if (c !== cols || r !== rows) { cols = c; rows = r; return true; }
+    return false;
+  }
+
+  const worker = new Worker('clouds.worker.js');
+  grid();
+  worker.postMessage({ cmd: 'init', cfg, cols, rows });
+
+  let rt = null;
+  addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { if (grid()) worker.postMessage({ cmd: 'resize', cols, rows }); }, 150);
+  });
+  document.addEventListener('visibilitychange', () =>
+    worker.postMessage({ cmd: document.hidden ? 'pause' : 'resume' }));
+
+  const css = (a, i) => 'rgb(' + a[3*i] + ',' + a[3*i+1] + ',' + a[3*i+2] + ')';
+
+  function paintBlocks(f) {
+    const hw = pxW / 2, hh = pxH / 2;
+    for (let y = 0; y < f.rows; y++) {
+      const py = y * pxH;
+      for (let x = 0; x < f.cols; x++) {
+        const i = y * f.cols + x;
+        if (prev && prev.glyph[i] === f.glyph[i]
+            && prev.fg[3*i] === f.fg[3*i] && prev.fg[3*i+1] === f.fg[3*i+1] && prev.fg[3*i+2] === f.fg[3*i+2]
+            && prev.bg[3*i] === f.bg[3*i] && prev.bg[3*i+1] === f.bg[3*i+1] && prev.bg[3*i+2] === f.bg[3*i+2])
+          continue;
+        const px = x * pxW, g = f.glyph[i];
+        ctx.fillStyle = css(f.bg, i);
+        ctx.fillRect(px, py, pxW + 0.5, pxH + 0.5);
+        if (g) {
+          ctx.fillStyle = css(f.fg, i);
+          if (g & 8) ctx.fillRect(px,      py,      hw + 0.5, hh + 0.5);
+          if (g & 4) ctx.fillRect(px + hw, py,      hw + 0.5, hh + 0.5);
+          if (g & 2) ctx.fillRect(px,      py + hh, hw + 0.5, hh + 0.5);
+          if (g & 1) ctx.fillRect(px + hw, py + hh, hw + 0.5, hh + 0.5);
+        }
+      }
+    }
+  }
+
+  function paintText(f) {
+    ctx.font = Math.round(pxH * 0.85) + 'px ui-monospace, Menlo, Consolas, monospace';
+    ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+    for (let y = 0; y < f.rows; y++) {
+      const py = y * pxH;
+      for (let x = 0; x < f.cols; x++) {
+        const i = y * f.cols + x, g = f.glyph[i];
+        if (prev && prev.glyph[i] === g && (cfg.mono || g === 32 ||
+            (prev.fg[3*i] === f.fg[3*i] && prev.fg[3*i+1] === f.fg[3*i+1] && prev.fg[3*i+2] === f.fg[3*i+2])))
+          continue;
+        const px = x * pxW;
+        ctx.fillStyle = '#000';
+        ctx.fillRect(px, py, pxW + 0.5, pxH + 0.5);
+        if (g === 32) continue;
+        ctx.fillStyle = cfg.mono ? '#ddd' : css(f.fg, i);
+        ctx.fillText(String.fromCharCode(g), px + pxW / 2, py + pxH / 2);
+      }
+    }
+  }
+
+  worker.onmessage = (e) => {
+    const f = e.data;
+    if (f.cmd !== 'frame' || f.cols !== cols || f.rows !== rows) return; /* stale size */
+    (blocks ? paintBlocks : paintText)(f);
+    prev = f;
+  };
+})();
+</script>
+</body>
+</html>
