@@ -6,7 +6,7 @@ I like writing and coding. Check out my [blog](https://gbkorr.github.io/r-bites)
 * Using Morse Code to run Bash on a Linux SBC: ["Morstdio"](https://gbkorr.github.io/r-bites/morstdio/morstdio.html)
 * A minimalist, full-stack python pipeline: ["What's the weather according to a satellite?"](https://gbkorr.github.io/r-bites/temperature/temperature.html)
 
-> Note: All writing and code is my own! I avoid using AI for personal projects, though I have experience with it in professional contexts.
+> Note: All writing is my own! And the code too, unless stated otherwise.
 
 ### *Big Projects:*
 
