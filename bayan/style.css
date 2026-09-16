@@ -1,0 +1,411 @@
+/* ---- theme ---- dark is default: black-lacquer cabinet on a matte charcoal page; light is a cream pearloid
+   cabinet on warm felt, with the register switches inverted (dark when lit). The cabinet (--panel-*) and the
+   grill band (--grill-*) are themed separately from the page so the instrument reads as an object on it. */
+:root {
+  --page-bg: #232228; --page-glow: #2b2a32; --page-edge: #141317; --page-noise-op: 0.4;
+  --fg: #ddd; --hint: #666; --divider: #2c2c34; --tick: #46464f; --split-track: #34343e;
+  --focus: #d9a441;
+  /* one engraved-label voice for every panel legend (OCT / MANUAL / AUTOMATIC / KEY SPLIT) */
+  --label-size: 11.5px; --label-weight: 700; --label-track: 0.16em;
+  --panel-hi: #2e2e36; --panel-mid: #17171c; --panel-lo: #101014;
+  --grill-band-1: #2a2a31; --grill-band-2: #141418; --grill-band-3: #232329;
+  --grill-grain: #8f8fa0; --grill-grain-op: 0.13; /* faint swirl in the lacquer... */
+  --grill-curve-op: 0.9;  /* the night specular is shaped by #g4-curve-nite; this just dials it */
+  --grill-shade-op: 0;    /* band shading: night mode gets its roll-off free from white-over-black */
+  --grill-lo: #000; --grill-lo-op: 0.55; /* the grate's bottom roll-off into the bottom rail: black on lacquer... */
+  --credits: var(--fg); --credits-hover: #fff; /* logo-band credits: as bright as the MANUAL/REGISTER labels at night... */
+  --credits-etch: #000; --credits-k-op: 0.6; /* ...raised off a dark band, so the cut edge below them is dark */
+  --thumb-slide: linear-gradient(#1a1a20, #26262c);
+  --thumb-bg: linear-gradient(#8b8b95, #62626b); --thumb-border: #3c3c44; /* day/night thumb: grey at night... */
+  --thumb-shadow: inset 0 1px 0 #ffffff35, 0 1px 2px #0007;
+  /* the body behind the front face: 20 solid offset copies of the silhouette stepped down and left, so the
+     cabinet stands on a side wall. Solid offsets follow the border-radius, wrapping the corners for free. */
+  --cab-depth: -0.6px 1px 0 #20202a, -1.2px 2px 0 #1d1d26, -1.8px 3px 0 #1a1a23, -2.4px 4px 0 #181820,
+               -3.0px 5px 0 #15151c, -3.6px 6px 0 #13131a, -4.2px 7px 0 #111117, -4.8px 8px 0 #0f0f14,
+               -5.4px 9px 0 #0d0d12, -6.0px 10px 0 #0c0c10, -6.6px 11px 0 #0a0a0e, -7.2px 12px 0 #09090c,
+               -7.8px 13px 0 #08080b, -8.4px 14px 0 #07070a, -9.0px 15px 0 #060608, -9.6px 16px 0 #050508,
+               -10.2px 17px 0 #050507, -10.8px 18px 0 #040406, -11.4px 19px 0 #040406, -12.0px 20px 0 #040406;
+  --cab-shadow: 0 2px 4px #0008, 0 8px 18px #00000059, 0 26px 60px #0009; /* panels: contact + ambient */
+  /* thrown from the back of the body rather than the front face, so it leans the way the side wall does */
+  --cab-ground: -7px 22px 8px #00000055, -10px 34px 28px #0009, -14px 52px 74px #000a;
+  /* the cabinet's rolled edge: the body turns away from us at all four sides, so the front face reads as the
+     top of a slab, with the body wall below carrying on from where the roll ends. */
+  --edge-w: 26px; --edge-top: #ffffff1f; --edge-lit: #ffffff12; --edge-bot: #00000085; --edge-shd: #00000070; --edge-crease: #ffffff10;
+  --trim-w: 3px; --grill-clear: 26.5625%; /* board top padding = the grill svg's height (425/1600 of the cabinet width,
+                                             % padding resolves against the width), so the controls start at its bottom rail */
+  --sw-bg: linear-gradient(#26262c, #1a1a20); --sw-border: #2b2b32; --sw-fg: #74747f; --sw-fg-hover: #9a9aa6;
+  --sw-shadow: inset 0 1px 0 #ffffff12, 0 2px 3px #0007;
+  --sw-on-bg: linear-gradient(#f5edd7, #d8cca7); --sw-on-border: #b9a97e; --sw-on-fg: #2c2410;
+  --sw-on-shadow: inset 0 -2px 3px #00000030, 0 0 8px #f3d98a66;
+  --key-outline: #ffffff28; --key-outline-on: #00000040; /* keybind chip outline: lighter than the switch in dark, darker in light */
+  --key-base: radial-gradient(circle at 50% 35%, #2c2c34, #121217); /* the boss a bass button is mounted on */
+}
+:root[data-theme="light"] {
+  --page-bg: #b7ab8e; --page-glow: #c3b795; --page-edge: #8d8367; --page-noise-op: 0.55;
+  --fg: #33301f; --hint: #8a7f63; --divider: #cbbf9f; --tick: #a4977a; --split-track: #b3a67f;
+  --panel-hi: #fbf7ea; --panel-mid: #ece4cf; --panel-lo: #ddd2b4;
+  --grill-band-1: #fffdf6; --grill-band-2: #ebe4d1; --grill-band-3: #fbf8ee;
+  --grill-grain: #a2916a; --grill-grain-op: 0.33; /* ...and real nacre on the cream band by day */
+  --grill-curve-op: 1;
+  --grill-shade-op: 1;    /* ...the cream band needs painted shading for the same dynamics by day */
+  --grill-lo: #3a3428; --grill-lo-op: 1; /* ...warm dark on pearloid */
+  --credits: #554d33; --credits-hover: var(--fg); /* ...and dark enough to hold against bright pearloid by day */
+  --credits-etch: #fffdf4; --credits-k-op: 0.88; /* ...cut into it, so the edge below them catches light */
+  --thumb-slide: linear-gradient(#3a3428, #8a7f63);
+  --thumb-bg: linear-gradient(#f5edd7, #d8cca7); --thumb-border: #b9a97e; /* ...cream by day */
+  --thumb-shadow: inset 0 -2px 3px #00000030, 0 1px 2px #00000030;
+  --cab-depth: -0.6px 1px 0 #d3c8a9, -1.2px 2px 0 #cabfa1, -1.8px 3px 0 #c2b799, -2.4px 4px 0 #baaf91,
+               -3.0px 5px 0 #b3a88a, -3.6px 6px 0 #aca184, -4.2px 7px 0 #a59b7e, -4.8px 8px 0 #9f9578,
+               -5.4px 9px 0 #9a8f73, -6.0px 10px 0 #958b6e, -6.6px 11px 0 #90866a, -7.2px 12px 0 #8c8266,
+               -7.8px 13px 0 #897f63, -8.4px 14px 0 #867b60, -9.0px 15px 0 #83795e, -9.6px 16px 0 #81775c,
+               -10.2px 17px 0 #7f755a, -10.8px 18px 0 #7e7459, -11.4px 19px 0 #7d7358, -12.0px 20px 0 #7d7358;
+  --cab-shadow: 0 2px 4px #00000038, 0 8px 16px #00000030, 0 22px 46px #00000038;
+  --cab-ground: -7px 22px 8px #00000026, -10px 32px 26px #00000030, -14px 48px 62px #00000040;
+  --edge-top: #fffdf5a0; --edge-lit: #fffdf560; --edge-bot: #4a412c5c; --edge-shd: #4a412c48; --edge-crease: #fffdf530;
+  --sw-bg: linear-gradient(#f2ead3, #ddd1b0); --sw-border: #c3b58c; --sw-fg: #a99a72; --sw-fg-hover: #857749;
+  --sw-shadow: inset 0 1px 1px #ffffff80, 0 2px 4px #00000033; /* stronger drop than dark so cream switches lift off the cream panel */
+  --sw-on-bg: linear-gradient(#3b3b34, #22221e); --sw-on-border: #17170f; --sw-on-fg: #f3ead2;
+  --sw-on-shadow: inset 0 1px 2px #0006, 0 1px 3px #00000033;
+  --key-outline: #00000045; --key-outline-on: #ffffff40;
+  --key-base: radial-gradient(circle at 50% 35%, #d8cdb0, #ada189);
+}
+
+/* ---- page ---- vignette + noise behind the cabinet (charcoal at night, warm felt by day). The cabinet is a
+   fixed pixel width, so narrow windows scroll sideways; width/min-width keep body as wide as its content so the
+   padding carries round to the far edge. */
+body { font: 14px/1.4 system-ui, sans-serif; margin: 0; padding: 1.2rem; min-height: 100dvh; box-sizing: border-box;
+       width: fit-content; min-width: 100%;
+       display: flex; flex-direction: column; align-items: safe center;
+       /* `safe`: once the cabinet outgrows the window, plain centring would push its left edge out of reach */
+       background: radial-gradient(125% 95% at 50% 36%, var(--page-glow), var(--page-edge) 82%) fixed, var(--page-bg);
+       color: var(--fg); transition: background .15s, color .15s; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+               opacity: var(--page-noise-op); transition: opacity .15s;
+               background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0 0 0 -0.28"/></filter><rect width="160" height="160" filter="url(%23n)"/></svg>') repeat; }
+
+/* ---- debug panel (?debug or F9): plain sliders on a cabinet-coloured card under the instrument ---- */
+#debug { width: min(980px, 100%); margin: 1.2rem auto 0; padding: 12px 18px 8px; border: 1px solid var(--divider); border-radius: 12px;
+         background: var(--panel-mid); color: var(--fg);
+         /* min-width:0 defeats the flex item's auto min-content floor, so the panel actually honours that width;
+            its wide slider grid then scrolls inside itself instead of pushing the page past the root's clip */
+         min-width: 0; overflow-x: auto; }
+#debug .debug-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+#debug .debug-head .ctl-label { flex: 1; }
+#debug button { font: 12px system-ui, sans-serif; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--sw-border);
+                background: var(--sw-bg); color: var(--sw-fg); cursor: pointer; }
+#debug button:hover { color: var(--sw-fg-hover); }
+.debug-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 28px; }
+.debug-cols h4 { grid-column: span 1; margin: 6px 0 2px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--hint); }
+#debug label { display: grid; grid-template-columns: 150px 1fr 58px; align-items: center; gap: 8px; font-size: 12px; }
+#debug label input[type=range] { width: 100%; margin: 0; }
+#debug label output { font: 12px ui-monospace, monospace; text-align: right; }
+#debug .hint { margin: 8px 0 0; font-size: 11px; color: var(--hint); }
+
+/* ---- start overlay ---- built from the cabinet's own panel gradient; always dark-toned in both themes.
+   main.js only toggles .hidden, the fade lives here. */
+#overlay { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
+           background: #0b0a0ecc; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+           cursor: pointer; transition: opacity .18s ease; }
+#overlay.hidden { opacity: 0; visibility: hidden; transition: opacity .18s ease, visibility 0s .18s; }
+.start-card { display: flex; flex-direction: column; align-items: center; gap: 13px; padding: 26px 46px 22px;
+              border-radius: 14px; border: 1px solid #ffffff1c;
+              background: linear-gradient(160deg, #30303a, #17171c 48%, #0e0e12);
+              box-shadow: 0 20px 55px #000a, inset 0 1px 0 #ffffff14; }
+.start-name { font: italic 700 32px/1 'Brush Script MT', 'Segoe Script', 'Snell Roundhand', 'Lucida Handwriting',
+                    'Apple Chancery', 'Z003', 'URW Chancery L', cursive;
+              color: #eaeaef; text-shadow: 0 2px 3px #000b; }
+.start-rule { align-self: stretch; height: 1px; background: linear-gradient(90deg, transparent, #ffffff33, transparent); }
+.start-cue { font-size: var(--label-size); font-weight: var(--label-weight); letter-spacing: var(--label-track);
+             text-transform: uppercase; color: #d9a441; animation: cue-pulse 2.4s ease-in-out infinite; }
+@keyframes cue-pulse { 0%, 100% { opacity: .5 } 50% { opacity: 1 } }
+@media (prefers-reduced-motion: reduce) {
+  .start-cue { animation: none; opacity: 1 }
+  #overlay, #overlay.hidden { transition: none }
+}
+
+/* ---- info button (top-left) and day/night switch (top-right), pinned to the corners of the logo band;
+   z-index 2 floats them above the grill svg (z-index 1) ---- */
+#infoBtn { position: absolute; top: 12px; left: 14px; z-index: 2;
+           width: 34px; height: 34px; border-radius: 50%; background: var(--sw-bg); color: var(--sw-fg);
+           border: 1px solid var(--sw-border); box-shadow: var(--sw-shadow); cursor: pointer;
+           font: italic 700 17px/1 Georgia, serif; transition: color .08s; }
+#infoBtn:hover { color: var(--sw-fg-hover); }
+#infoBtn:active { box-shadow: inset 0 1px 3px #0007; }
+/* slide toggle: unchecked = dark (thumb left, over the sun), checked = light (thumb right, over the crescent),
+   so the glyph left showing is the mode you are in. The track is always dark (the night-mode switch colours)
+   so the amber sun stays visible; the thumb follows the theme */
+#themeSwitch { position: absolute; top: 14px; right: 14px; z-index: 2; display: inline-block; cursor: pointer; }
+#themeSwitch input { position: absolute; opacity: 0; width: 0; height: 0; }
+#themeSwitch .track { position: relative; display: flex; justify-content: space-between; align-items: center;
+                      width: 62px; height: 30px; padding: 0 7px; box-sizing: border-box; border-radius: 15px;
+                      background: var(--thumb-slide); border: 1px solid #2b2b32;
+                      box-shadow: inset 0 1px 0 #ffffff12, 0 2px 3px #0007; }
+#themeSwitch .glyph { display: flex; z-index: 1; }
+#themeSwitch .glyph svg { display: block; width: 14px; height: 14px; fill: currentColor; }
+#themeSwitch .glyph.sun { color: #e6b73d; }
+#themeSwitch .glyph.moon { color: #c4c4ce; }
+#themeSwitch .thumb { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+                      background: var(--thumb-bg); border: 1px solid var(--thumb-border); box-sizing: border-box;
+                      box-shadow: var(--thumb-shadow); transition: left .15s; z-index: 2; }
+#themeSwitch input:checked + .track .thumb { left: 35px; }
+:root.kbd-nav #themeSwitch input:focus + .track { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ---- the cabinet: chrome-edged rounded body, panel gradient behind everything, grill band on top ----
+   width: fit-content hugs the widest board row (positionSplitKnob sets #registers to the same width as the
+   .cols rows, so all rows match). NEVER put a transform/scale on #instrument, #board, or an ancestor —
+   js/ui/split.js positions the split knob and octave pads from live client rects. */
+#instrument { position: relative; width: fit-content; flex: none; border-radius: 18px;
+              border: var(--trim-w) solid transparent;
+              background: linear-gradient(160deg, var(--panel-hi), var(--panel-mid) 45%, var(--panel-lo)) padding-box,
+                          linear-gradient(165deg, #f6f6f6, #b3b6bc 30%, #ecedef 55%, #7f838a) border-box; /* rolled chrome edge */
+              box-shadow: var(--cab-depth), var(--cab-ground); overflow: hidden; /* clips the grill's square top corners to the radius */ }
+/* rolled edge: one click-through overlay above the grill so grate and wordmark curve away with the celluloid;
+   three stops a side so the fall-off curves like a roll rather than ramping flat */
+#instrument::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: 15px;
+  box-shadow: inset 0 0 0 1px var(--edge-crease);
+  background:
+    linear-gradient(to bottom, var(--edge-top), color-mix(in srgb, var(--edge-top) 34%, transparent) calc(var(--edge-w) * .42), transparent var(--edge-w)),
+    linear-gradient(to right,  var(--edge-shd), color-mix(in srgb, var(--edge-shd) 34%, transparent) calc(var(--edge-w) * .42), transparent var(--edge-w)),
+    linear-gradient(to left,   var(--edge-lit), color-mix(in srgb, var(--edge-lit) 34%, transparent) calc(var(--edge-w) * .42), transparent var(--edge-w)),
+    linear-gradient(to top,    var(--edge-bot), color-mix(in srgb, var(--edge-bot) 34%, transparent) calc(var(--edge-w) * .42), transparent var(--edge-w));
+}
+/* z-index lifts the grill above #board so the credits link is clickable; the svg itself passes clicks through */
+#grill { position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; pointer-events: none; z-index: 1; }
+/* grill theming: the band's gradient stops and the grain tint follow the theme; chrome is hardcoded in the SVG */
+#grill .g4-band-1 { stop-color: var(--grill-band-1); }
+#grill .g4-band-2 { stop-color: var(--grill-band-2); }
+#grill .g4-band-3 { stop-color: var(--grill-band-3); }
+#grill .g4-grain { fill: var(--grill-grain); opacity: var(--grill-grain-op); }
+#grill .g4-curve-rect { opacity: var(--grill-curve-op); }
+#grill .g4-shade-rect { opacity: var(--grill-shade-op); }
+#grill .g4-lo { stop-color: var(--grill-lo); }
+#grill .g4-curve-lo-rect { opacity: var(--grill-lo-op); }
+/* the grate and barrel specular are drawn twice and the theme picks one; night is the bare-:root default so
+   the pre-JS paint already matches the theme it will land on */
+#grill .grate-louvre, #grill .g4-curve-day { display: none; }
+:root[data-theme="light"] #grill .grate-louvre, :root[data-theme="light"] #grill .g4-curve-day { display: block; }
+:root[data-theme="light"] #grill .grate-mesh,  :root[data-theme="light"] #grill .g4-curve-nite { display: none; }
+/* .mesh-screen is never hidden — by day it shows through the louvre slots instead of the fretwork */
+:root[data-theme="light"] #grill .g4-front { mask: url(#g4-louvre); }
+/* credits: raised off the lacquer at night, cut into the pearloid by day — same offset copy, opposite value */
+#grill .g4-credits { fill: var(--credits); }
+#grill .g4-cred-k { fill-opacity: var(--credits-k-op); }
+#grill #g4-etch feDropShadow { flood-color: var(--credits-etch); }
+#grill .g4-credits a { pointer-events: auto; cursor: pointer; }
+#grill .g4-credits a:hover .g4-link { fill: var(--credits-hover); }
+
+/* ---- register switches (reed-rank tabs), grouped: manual rank toggles | automatic presets ---- */
+/* registers sit centred over the key area (width set in js/ui/split.js), overlapping the grill's louvre rows
+   like real switches in front of the grill, an octave pad at each end */
+#registers { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; margin: 0px 0 1.2rem;
+             border-bottom: 1px solid var(--divider); padding: 12px 0; } /* top edge: the grill's bottom chrome rail */
+#regCenter { display: flex; align-items: stretch; gap: 14px; }
+.reg-title, .ctl-label { font-size: var(--label-size); font-weight: var(--label-weight);
+                         letter-spacing: var(--label-track); text-transform: uppercase; }
+.reg-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.reg-divider { width: 2px; background: var(--divider); border-radius: 1px; }
+/* 8px, not 10: twelve switches (5 manual + 7 automatic) have to sit between the two 94px octave dials */
+.switchbank { display: flex; gap: 8px; }
+/* every switch is one key wide (52px, as .key) so the banks read as even rows; border-box stated because the
+   fixed width depends on it */
+.reg-switch { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; flex: none;
+              box-sizing: border-box; padding: 8px 8px 6px;
+              border: 1px solid var(--sw-border); border-radius: 8px 8px 11px 11px; cursor: pointer;
+              background: var(--sw-bg); color: var(--sw-fg);
+              box-shadow: var(--sw-shadow); transition: color .08s, background .08s, transform .06s, box-shadow .06s; }
+.reg-switch:hover { color: var(--sw-fg-hover); }
+.reg-switch:active { transform: translateY(1px); box-shadow: inset 0 1px 3px #00000055; }
+/* the hotkeys work the same switches, so they get the same throw — .pressed comes from js/ui/registers.js */
+@keyframes reg-press { from, 55% { transform: translateY(1px); box-shadow: inset 0 1px 3px #00000055; } }
+.reg-switch.pressed { animation: reg-press .14s ease-out; }
+@media (prefers-reduced-motion: reduce) { .reg-switch.pressed { animation: none; } }
+.reg-icon { width: 26px; height: 26px; display: block; }
+/* negative side margins let a long name ("master") use the switch's full width instead of overflowing its padding */
+.reg-label { font-size: 11px; font-weight: 600; letter-spacing: .04em; margin: 0 -6px; }
+.reg-key { font: 600 10px/1 ui-monospace, monospace; padding: 2px 4px; border-radius: 3px; min-width: 8px; text-align: center;
+           background: transparent; border: 1px solid var(--key-outline); } /* the Shift/Enter + this keybind: outline only */
+.reg-switch.on .reg-key { border-color: var(--key-outline-on); }
+.reg-switch.on { color: var(--sw-on-fg); background: var(--sw-on-bg); border-color: var(--sw-on-border);
+                 box-shadow: var(--sw-on-shadow); }
+
+/* One focus ring for every control, gated on html.kbd-nav ("you tabbed here" — see STRUCTURE.md for why
+   :focus-visible can't say that). The UA ring follows :focus-visible, so the first rule clears it. */
+:is(.reg-switch, #infoBtn, #infoClose, #splitKnob, .volume, .oct-dial, .g4-credits a):focus { outline: none; }
+:root.kbd-nav :is(.reg-switch, #infoBtn, #infoClose, #splitKnob, .volume, .oct-dial, .g4-credits a):focus {
+  outline: 2px solid var(--focus); outline-offset: 2px;
+}
+
+/* ---- board layout ---- */
+/* the cabinet's content layer: top padding clears the grill band (the registers then overlap the louvre rows).
+   Plain padding only — the split control measures live rects, so padding is safe, transforms are not. */
+#board { position: relative; padding: var(--grill-clear) 16px 18px; }
+/* every row below the registers is [gutter | keyboard column | gutter]; the gutters hold the pressure sliders /
+   the KEY SPLIT label so the split slider and octave row line up exactly with the keyboard */
+.cols { display: grid; grid-template-columns: 84px max-content 84px; align-items: start; justify-content: start; }
+.gutter { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+/* thin seams between the volume-slider gutters and the keyboard (the 84px column width includes the 1px border) */
+main.cols { align-items: stretch; }
+main .gutter:first-child { border-right: 1px solid var(--divider); }
+main .gutter:last-child { border-left: 1px solid var(--divider); }
+/* and between the keyboard and the key-split row */
+#splitRow { border-top: 1px solid var(--divider); margin-top: 12px; padding-top: 12px; }
+
+/* ---- hand-split slider ---- */
+#splitWrap { position: relative; height: 30px; margin-top: 0px; touch-action: none; } /* width set from the keyboard in js/ui/split.js */
+#splitLabel { position: absolute; top: 0; height: 30px; line-height: 30px; white-space: nowrap; }
+/* snap marks, one per split. left/right and the --tick-* lengths come from js/ui/split.js; marks start half a
+   cap in (29px = 30px less half a 2px mark) so the first sits under the cap at its leftmost detent */
+#splitTrack { position: absolute; left: 0; right: 0; top: 50%; height: 14px; transform: translateY(-50%);
+              background: repeating-linear-gradient(to right, var(--tick) 0 2px, transparent 2px var(--tick-pitch))
+                          left 29px top 0 / var(--tick-span) 14px no-repeat; }
+#splitTrack::before { content: ""; position: absolute; inset: 5px 0; /* the rail, over the middle of the marks */
+                      background: var(--split-track); border-radius: 2px; }
+/* a mixing-console fader cap (see the SVG in index.html); travels horizontally, its amber centre line marks the break */
+#splitKnob { position: absolute; top: 50%; width: 60px; height: 30px; margin-left: -30px; transform: translateY(-50%);
+             cursor: grab; filter: drop-shadow(0 2px 3px #0009); }
+#splitKnob svg { display: block; width: 60px; height: 30px; pointer-events: none; }
+#splitKnob:active, #splitKnob.dragging { cursor: grabbing; }
+/* eased only when settling onto a detent (release, arrow keys) — never under the pointer; .eased is added on
+   load so the first layout passes do not slide */
+#splitKnob.eased { transition: left .12s ease; }
+#splitKnob.dragging { transition: none; }
+@media (prefers-reduced-motion: reduce) { #splitKnob.eased { transition: none; } }
+:root.kbd-nav #splitKnob:focus { border-radius: 4px; } /* rounds the ring to the fader cap */
+
+/* ---- keyboards ---- */
+main { display: grid; }
+.volume-wrap { gap: 6px; }
+.speaker { color: var(--hint); display: flex; }
+.speaker svg { display: block; width: 19px; height: 15px; fill: currentColor; }
+.grid { display: flex; flex-direction: column; gap: 4px; }
+/* octave-shift slide (js/ui/keyboard.js): offset and letter-dissolve fraction are one inherited property per
+   hand — a frame is two writes, not 27 — and scoped to .shifting so the idle board renders untouched */
+#keyboard { position: relative; --u-melody: 0; --u-bass: 0; --f-melody: 0; --f-bass: 0; }
+#keyboard.shifting .key.melody { --u: var(--u-melody); --f: var(--f-melody); }
+#keyboard.shifting .key.bass   { --u: var(--u-bass);   --f: var(--f-bass); }
+/* on the key, so dome, legends and boss ride along — and so none of them pick up their own .05s transition */
+#keyboard.shifting .key { transform: translateX(calc(var(--u, 0) * 1px)); }
+#keyboard.shifting .key > b       { opacity: calc(1 - var(--f, 0)); }
+#keyboard.shifting .key > b.b-was { opacity: var(--f, 0); }
+/* the dome's black/white must not cross-fade: the landing repaint happens under .shifting (held two extra
+   frames) so .07s of background transition never shows */
+#keyboard.shifting .key::before { transition: transform .05s, box-shadow .05s; }
+/* clone layer used by both key animations (octave ghosts, split fade-outs); each animation owns its own
+   layer, so neither can clear the other's */
+.key-ghosts { position: absolute; inset: 0; pointer-events: none; }
+/* the letter a slot is dissolving towards — invisible at rest; a <b> so it inherits the legend's styling */
+.key .b-was { position: absolute; left: 50%; z-index: 2; pointer-events: none; opacity: 0;
+              transform: translate(-50%, calc(var(--dome-y) + var(--press))); }
+.row { display: flex; gap: 4px; margin-left: calc(var(--indent) * 56px); } /* 56px = key pitch; indents mirror the real keyboard stagger */
+/* ~1.5-key gap between the hands. On a split step this margin hops one key, so exactly one key per row
+   changes hands — and it cross-fades rather than travels (js/ui/keyboard.js playSplitFade) */
+.key.handstart { margin-left: 82px; }
+
+/* every key is a round button: ::before = the dome, bass adds an ::after boss behind it (dome nudged up by
+   --dome-y to sit level with the melody tops). --press = the depth a held key sinks; dome and legend ride it. */
+.key { position: relative; width: 52px; height: 44px; box-sizing: border-box;
+       display: flex; flex-direction: column; align-items: center; justify-content: center;
+       --press: 0px; --dome-y: 0px; }
+/* min-height keeps the line box when the legend is empty: a key over a slot past the end of the board has no
+   letter, and a collapsed <b> lets the note below it float up and snap back */
+.key b { font-size: 13px; line-height: 1.05; min-height: 1.05em; position: relative; z-index: 2; }
+.key span { font-size: 10px; line-height: 1.05; position: relative; z-index: 2; }
+.key b, .key span { transform: translateY(calc(var(--dome-y) + var(--press))); transition: transform .05s; }
+.key::before { content: ""; position: absolute; top: 50%; left: 50%;
+               transform: translate(-50%, calc(-50% + var(--dome-y) + var(--press)));
+               border-radius: 50%; z-index: 1;
+               box-shadow: inset -2px -3px 5px #00000045, inset 1px 2px 3px #ffffff30, 0 3px 5px #00000070;
+               transition: transform .05s, box-shadow .05s, background .07s; }
+.key.melody::before { width: 46px; height: 46px; }
+.key.bass::before   { width: 34px; height: 34px; }
+.key.bass { --dome-y: -5px; }
+.key.bass::after { content: ""; position: absolute; top: 55%; left: 50%; width: 35px; height: 35px;
+                   transform: translate(-50%, -50%); border-radius: 50%; z-index: 0; background: var(--key-base);
+                   box-shadow: inset 0 2px 4px #00000055, 0 1px 2px #00000055; }
+.key.bass b { font-size: 12px; }
+.key.bass span { font-size: 9px; }
+
+.key.white::before { background: radial-gradient(circle at 38% 30%, #ffffff, #dcdce2 55%, #b4b4bf); }
+.key.black::before { background: radial-gradient(circle at 38% 30%, #56565f, #26262c 55%, #0f0f13); }
+.key.white b { color: #222; } .key.white span { color: #444; }
+.key.black b { color: #f2f2f6; } .key.black span { color: #d6d6dd; }
+/* held: the cap sinks into the boss and lights, sharing the register switches' lit-amber vocabulary */
+.key.held { --press: 2px; }
+.key.held::before { background: radial-gradient(circle at 38% 30%, #ffe9b0, #e0a83a 60%, #b9832a);
+                    box-shadow: inset -1px -2px 4px #00000038, inset 1px 2px 2px #ffffff28,
+                                0 1px 2px #00000060, 0 0 10px #e0a83a55; }
+.key.held b, .key.held span { color: #000; }
+
+/* ---- volume faders (up = higher): a half-length cap matching the split knob, on a thin centre track ---- */
+:root { --fader-cap: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="%232b2b31"/><stop offset="0.5" stop-color="%236d6d76"/><stop offset="1" stop-color="%23232328"/></linearGradient></defs><rect x="1" y="1" width="28" height="28" rx="3.5" fill="url(%23b)" stroke="%23141416" stroke-width="1"/><g stroke="%2300000055" stroke-width="1"><line x1="4.5" y1="5.5" x2="25.5" y2="5.5"/><line x1="4.5" y1="10.5" x2="25.5" y2="10.5"/><line x1="4.5" y1="19.5" x2="25.5" y2="19.5"/><line x1="4.5" y1="24.5" x2="25.5" y2="24.5"/></g><rect x="2.5" y="14" width="25" height="2" rx="1" fill="%23d9a441"/></svg>'); }
+.volume { -webkit-appearance: none; appearance: none;
+            writing-mode: vertical-lr; direction: rtl; width: 36px; height: 188px; margin: 0; cursor: grab;
+            background:
+              /* 5 marks down each flank spanning the cap's centre travel; whole-pixel stops on a whole-pixel
+                 period, or the marks rasterise 1px or 2px depending on the last repaint */
+              repeating-linear-gradient(to bottom, var(--tick) 0 2px, transparent 2px 39px) left 0 top 15px / 7px 158px no-repeat,
+              repeating-linear-gradient(to bottom, var(--tick) 0 2px, transparent 2px 39px) right 0 top 15px / 7px 158px no-repeat,
+              linear-gradient(to right, transparent calc(50% - 2px), var(--split-track) calc(50% - 2px),
+                        var(--split-track) calc(50% + 2px), transparent calc(50% + 2px)); }
+.volume:active { cursor: grabbing; }
+.volume::-webkit-slider-runnable-track { background: transparent; border: none; }
+.volume::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border: none;
+                                  background: var(--fader-cap) center / contain no-repeat; filter: drop-shadow(0 2px 3px #0009); }
+.volume::-moz-range-track { background: transparent; border: none; }
+.volume::-moz-range-thumb { width: 30px; height: 30px; border: none; border-radius: 0;
+                              background: var(--fader-cap) center / contain no-repeat; filter: drop-shadow(0 2px 3px #0009); }
+
+/* ---- octave dials, flanking the registers ---- */
+/* a detented rotary per hand; only .oct-turn (the amber pointer) rotates, via --oct-deg from js/ui/dials.js */
+#octL { justify-self: start; } #octR { justify-self: end; }
+.octave { display: flex; align-items: center; }
+.oct-pad { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+/* 94px for an 84-unit viewBox holds ~1.12px per unit, the scale the cap and ticks were drawn at: the box opens
+   out to clear the numerals, the knob inside it keeps the size it had */
+.oct-dial { position: relative; width: 94px; height: 94px; border-radius: 50%; cursor: grab; touch-action: none; }
+.oct-dial:active { cursor: grabbing; }
+/* wider grab area via pseudo-element: no layout cost, and getBoundingClientRect (stepAt's centre) untouched */
+.oct-dial::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+.oct-dial svg { display: block; width: 94px; height: 94px; filter: drop-shadow(0 2px 2px #00000066); overflow: visible; }
+.oct-dial .oct-turn { transform-origin: 32px 32px; transform: rotate(var(--oct-deg, 0deg));
+                      transition: transform .13s cubic-bezier(.2,.75,.25,1); }
+.oct-dial .oct-scale { fill: none; }
+.oct-detent { stroke: var(--sw-fg); stroke-linecap: round; opacity: .5; } /* only the halves are marks now */
+/* scale numerals: whole octaves only, stronger than the half-step marks (viewBox units: 8px is ~9 real px) */
+.oct-num { fill: var(--sw-fg); font: 600 10px/1 system-ui, sans-serif; text-anchor: middle; dominant-baseline: central; }
+:root.kbd-nav .oct-dial:focus { outline-offset: 3px; } /* the ring itself comes from the shared rule above */
+@media (prefers-reduced-motion: reduce) { .oct-dial .oct-turn { transition: none; } }
+/* fixed tracks: 'M' is wider than '<', and auto columns would misalign the two dials' legends */
+/* -12px drops the legend onto the MANUAL/AUTOMATIC line (into the dial box's empty top corners — any lower
+   collides with the ±2 numerals and the knob) */
+.oct-read { display: grid; grid-template-columns: 24px 46px 24px; justify-items: center; align-items: center;
+            margin-bottom: -12px; }
+.oct-name { margin-right: calc(var(--label-track) * -1); } /* the tracking's trailing space, undone, so OCT sits centred */
+
+/* ---- info dialog ---- built from the cabinet's own panel gradient, a plate lifted off the instrument ---- */
+#infoDialog { border: 1px solid var(--sw-border); border-radius: 14px; padding: 20px 24px 0; max-width: 29rem;
+              background: linear-gradient(160deg, var(--panel-hi), var(--panel-mid) 45%, var(--panel-lo));
+              color: var(--fg); box-shadow: var(--cab-shadow);
+              opacity: 0; transform: translateY(8px) scale(.985);
+              transition: opacity .16s ease, transform .16s ease,
+                          overlay .16s allow-discrete, display .16s allow-discrete; }
+#infoDialog[open] { opacity: 1; transform: none; }
+@starting-style { #infoDialog[open] { opacity: 0; transform: translateY(8px) scale(.985); } }
+#infoDialog::backdrop { background: #0009; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+                        opacity: 0; transition: opacity .16s ease, overlay .16s allow-discrete, display .16s allow-discrete; }
+#infoDialog[open]::backdrop { opacity: 1; }
+@starting-style { #infoDialog[open]::backdrop { opacity: 0; } }
+#infoDialog h2 { margin: 0 0 14px; padding-bottom: 11px; border-bottom: 1px solid var(--divider);
+                 font-size: 14px; font-weight: var(--label-weight); letter-spacing: var(--label-track);
+                 text-transform: uppercase; }
+#infoDialog p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.55; }
+#infoDialog .hint { margin: 0; padding-top: 13px; border-top: 1px solid var(--divider); font-size: 12px; color: var(--hint); }
+.dlg-foot { margin: 16px -24px 0; padding: 13px 24px; border-top: 1px solid var(--divider);
+            display: flex; justify-content: flex-end; }
+#infoClose { background: var(--sw-bg); color: var(--sw-fg); border: 1px solid var(--sw-border); border-radius: 8px;
+             padding: 6px 16px; cursor: pointer; box-shadow: var(--sw-shadow);
+             font-size: 11px; font-weight: var(--label-weight); letter-spacing: var(--label-track); text-transform: uppercase;
+             transition: color .08s, transform .06s, box-shadow .06s; }
+#infoClose:hover { color: var(--sw-fg-hover); }
+#infoClose:active { transform: translateY(1px); box-shadow: inset 0 1px 3px #00000055; }

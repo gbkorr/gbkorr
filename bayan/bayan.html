@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bayan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="overlay">
+  <div class="start-card">
+    <span class="start-name">Web-Bayan</span>
+    <span class="start-rule"></span>
+    <span class="start-cue">Click or press any key</span>
+  </div>
+</div>
+
+<div id="instrument">
+  <label id="themeSwitch" title="light / dark mode">
+    <input id="themeToggle" type="checkbox" aria-label="light mode">
+    <span class="track">
+      <span class="glyph sun" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.1"/><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 .9v2.1M8 13v2.1M.9 8h2.1M13 8h2.1M2.98 2.98l1.48 1.48M11.54 11.54l1.48 1.48M13.02 2.98l-1.48 1.48M4.46 11.54l-1.48 1.48"/></g></svg></span>
+      <span class="glyph moon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 10.1A5.9 5.9 0 0 1 5.9 2.6a1 1 0 0 0-1.45-1.14 6.9 6.9 0 1 0 10.09 10.09 1 1 0 0 0-1.14-1.45z"/></svg></span>
+      <span class="thumb"></span></span>
+  </label>
+  <button id="infoBtn" type="button" aria-label="info">i</button>
+  <!-- grill: logo band + sound grate + chrome rail. The grate is drawn twice and the theme shows one (day
+       louvres / night fretwork over a mesh screen); colours and shading come from style.css, chrome stays
+       chrome in both themes. Construction notes: STRUCTURE.md. -->
+  <svg id="grill" viewBox="0 0 1600 425" role="img" aria-label="Web-Bayan">
+  <defs>
+    <linearGradient id="g4-chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f6f6"/><stop offset="0.3" stop-color="#b3b6bc"/>
+      <stop offset="0.55" stop-color="#ecedef"/><stop offset="1" stop-color="#7f838a"/>
+    </linearGradient>
+    <linearGradient id="g4-band" x1="0" y1="0" x2="1" y2="1">
+      <stop class="g4-band-1" offset="0" stop-color="#fffdf6"/><stop class="g4-band-2" offset="0.5" stop-color="#ebe4d1"/><stop class="g4-band-3" offset="1" stop-color="#fbf8ee"/>
+    </linearGradient>
+
+    <!-- top-edge roll-off, one per finish: pearloid takes a broad ramp, lacquer one narrow specular -->
+    <linearGradient id="g4-curve" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="425">
+      <stop offset="0"    stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="0.09" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.24" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="0.42" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="0.66" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g4-curve-nite" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="425">
+      <stop offset="0"     stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="0.035" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.075" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="0.15"  stop-color="#ffffff" stop-opacity="0.035"/>
+      <stop offset="0.28"  stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- day-only warm tint at the very top edge (dialled by --grill-shade-op) -->
+    <linearGradient id="g4-shade" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="40">
+      <stop offset="0" stop-color="#3a3428" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#3a3428" stop-opacity="0"/>
+    </linearGradient>
+    <!-- bottom roll-off into the rail (colour/strength per theme) -->
+    <linearGradient id="g4-curve-lo" gradientUnits="userSpaceOnUse" x1="0" y1="290" x2="0" y2="425">
+      <stop class="g4-lo" offset="0"    stop-color="#3a3428" stop-opacity="0"/>
+      <stop class="g4-lo" offset="0.45" stop-color="#3a3428" stop-opacity="0.10"/>
+      <stop class="g4-lo" offset="0.8"  stop-color="#3a3428" stop-opacity="0.30"/>
+      <stop class="g4-lo" offset="1"    stop-color="#3a3428" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- chrome rail (9 units + 2-unit shadow line) along the bottom edge -->
+    <g id="g4-rail"><rect x="0" y="0" width="1600" height="9" fill="url(#g4-chrome)"/><rect x="0" y="9" width="1600" height="2" fill="#000" opacity="0.5"/></g>
+    
+    <!-- wordmark: a 12-module grid sheared 1:2, every vertex an integer; the top rule is the B's bar run out -->
+    <path id="g4-word" d="M963 54 L677 54 L638 132 L716 132 L742 80 L794 80 L768 132 L794 132 L859 106 L807 106 L820 80 L872 80 L846 132 L872 132 L898 80 M664 80 L716 80 L690 132 M729 106 L781 106 M885 106 L937 106 M950 80 L924 132"/>
+    <!-- wordmark base metal: a low-contrast sky/horizon/ground ramp; the per-bar shaping is #g4-logoLight's -->
+    <linearGradient id="g4-chromeW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6eaef"/><stop offset="0.3" stop-color="#b2b9c2"/>
+      <stop offset="0.5" stop-color="#6f757f"/><stop offset="0.64" stop-color="#ccd3db"/>
+      <stop offset="1" stop-color="#868c95"/>
+    </linearGradient>
+    <!-- wordmark relit off its own geometry: blurred SourceAlpha as a height field, one diffuse key + two
+         speculars (sky/floor), each pass clipped to the stroke. Full story in STRUCTURE.md. -->
+    <filter id="g4-logoLight" x="-6%" y="-28%" width="112%" height="156%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="bump"/>
+      <!-- diffuseConstant = 1/sin(elevation): a flat face passes the gradient through, only bevels move -->
+      <feDiffuseLighting in="bump" surfaceScale="5" diffuseConstant="1.27" lighting-color="#fff" result="dif">
+        <feDistantLight azimuth="235" elevation="52"/>
+      </feDiffuseLighting>
+      <feComposite in="dif" in2="SourceAlpha" operator="in" result="difc"/>
+      <feBlend in="SourceGraphic" in2="difc" mode="multiply" result="body"/>
+      <!-- the two flashes of chrome: sky on the top bevel, floor bounce off the bottom one -->
+      <feSpecularLighting in="bump" surfaceScale="5" specularConstant="1" specularExponent="34" lighting-color="#ffffff" result="sky">
+        <feDistantLight azimuth="235" elevation="48"/>
+      </feSpecularLighting>
+      <feSpecularLighting in="bump" surfaceScale="5" specularConstant="0.6" specularExponent="20" lighting-color="#ccd6e2" result="grd">
+        <feDistantLight azimuth="62" elevation="28"/>
+      </feSpecularLighting>
+      <feComposite in="sky" in2="grd" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="flash"/>
+      <feComposite in="flash" in2="SourceAlpha" operator="in" result="flashc"/>
+      <feComposite in="flashc" in2="body" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    <!-- the letters stand off the band and drop a shadow onto it -->
+    <filter id="g4-logoShadow" x="-6%" y="-28%" width="112%" height="156%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.2" flood-opacity="0.55"/>
+    </filter>
+    <!-- credits etch: a 1-unit offset copy in the opposite value (flood-color themed in style.css) -->
+    <filter id="g4-etch" x="-5%" y="-30%" width="110%" height="180%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation="0" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- pearloid grain / lacquer swirl: turbulence stretched ~13:1 (tint/opacity via --grill-grain*) -->
+    <filter id="g4-nacre" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.0035 0.045" numOctaves="3" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" result="a"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                1.35 0 0 0 -0.55"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+
+    <g id="g4-lrow"><!-- 14 slots, centred: 13*108 + 90 = 1494 wide, 53 margin each side -->
+      <rect x="53" width="90" height="12" rx="6"/><rect x="161" width="90" height="12" rx="6"/><rect x="269" width="90" height="12" rx="6"/>
+      <rect x="377" width="90" height="12" rx="6"/><rect x="485" width="90" height="12" rx="6"/><rect x="593" width="90" height="12" rx="6"/>
+      <rect x="701" width="90" height="12" rx="6"/><rect x="809" width="90" height="12" rx="6"/><rect x="917" width="90" height="12" rx="6"/>
+      <rect x="1025" width="90" height="12" rx="6"/><rect x="1133" width="90" height="12" rx="6"/><rect x="1241" width="90" height="12" rx="6"/>
+      <rect x="1349" width="90" height="12" rx="6"/><rect x="1457" width="90" height="12" rx="6"/>
+    </g>
+
+    <!-- night mesh: chrome wire over a black cavity; the last group re-draws two crossings so it reads as
+         woven, not printed -->
+    <linearGradient id="g4-wireH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8c9097"/><stop offset="0.42" stop-color="#565961"/><stop offset="1" stop-color="#22242a"/>
+    </linearGradient>
+    <linearGradient id="g4-wireV" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7b7f86"/><stop offset="0.42" stop-color="#4a4d54"/><stop offset="1" stop-color="#1d1f25"/>
+    </linearGradient>
+    <!-- weave scaled to ~2/3 so more than one wire run fits inside a 12-unit louvre slot -->
+    <pattern id="g4-mesh" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="scale(0.66)">
+      <rect width="18" height="18" fill="#08080a"/>
+      <g fill="url(#g4-wireH)">
+        <rect x="-0.5" y="0.4" width="19" height="3.4" rx="1.7"/><rect x="-0.5" y="9.4" width="19" height="3.4" rx="1.7"/>
+      </g>
+      <g fill="url(#g4-wireV)">
+        <rect x="0.4" y="-0.5" width="3.4" height="19" rx="1.7"/><rect x="9.4" y="-0.5" width="3.4" height="19" rx="1.7"/>
+      </g>
+      <g fill="url(#g4-wireH)">
+        <rect x="-0.5" y="0.4" width="5.3" height="3.4"/><rect x="8.5" y="9.4" width="5.3" height="3.4"/>
+      </g>
+    </pattern>
+    <!-- soft diagonal wipe so the weave catches light unevenly -->
+    <linearGradient id="g4-meshSheen" x1="0.08" y1="0" x2="0.52" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.11"/><stop offset="0.34" stop-color="#ffffff" stop-opacity="0.025"/>
+      <stop offset="0.68" stop-color="#ffffff" stop-opacity="0.07"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- night fretwork: a 108x70 cell (14x3 across the grate), lozenge + struts; black opens onto the mesh
+         behind, so bars are white over black -->
+    <g id="g4-fretGrid">
+      <path d="M0 0 H108 M0 70 H108 M0 0 V70 M108 0 V70 M54 0 V21 M54 49 V70"/>
+      <path d="M0 35 L54 21 L108 35 L54 49 Z"/>
+    </g>
+    <pattern id="g4-fretCell" x="44" y="192" width="108" height="70" patternUnits="userSpaceOnUse">
+      <rect width="108" height="70" fill="#000"/>
+      <use href="#g4-fretGrid" fill="none" stroke="#fff" stroke-width="8.2" stroke-linejoin="round"/>
+    </pattern>
+    <mask id="g4-fret" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="425">
+      <rect x="0" y="0" width="1600" height="425" fill="#fff"/>
+      <rect x="44" y="192" width="1512" height="210" fill="url(#g4-fretCell)"/>
+    </mask>
+    <!-- day cut: the louvre slots, so the screen shows through those too -->
+    <mask id="g4-louvre" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="425">
+      <rect x="0" y="0" width="1600" height="425" fill="#fff"/>
+      <g fill="#000"><use href="#g4-lrow" y="200"/><use href="#g4-lrow" y="226"/><use href="#g4-lrow" y="252"/><use href="#g4-lrow" y="278"/><use href="#g4-lrow" y="304"/><use href="#g4-lrow" y="330"/><use href="#g4-lrow" y="356"/><use href="#g4-lrow" y="382"/></g>
+    </mask>
+    <!-- fret cut edges: even darkening all round, no offset (lit flat) -->
+    <pattern id="g4-fretBevel" x="44" y="192" width="108" height="70" patternUnits="userSpaceOnUse">
+      <use href="#g4-fretGrid" fill="none" stroke="#000" stroke-opacity="0.45" stroke-width="10" stroke-linejoin="round"/>
+    </pattern>
+    <!-- cavity edges fall into shadow on all four sides -->
+    <linearGradient id="g4-recV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.45"/><stop offset="0.085" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.83" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="g4-recH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.4"/><stop offset="0.022" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.978" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- behind the front in both themes: the cavity and the mesh screen; seen only through the front's cuts -->
+  <g class="mesh-screen">
+    <rect x="44" y="192" width="1512" height="210" rx="6" fill="#08080a"/>
+    <rect x="44" y="192" width="1512" height="210" rx="6" fill="url(#g4-mesh)"/>
+    <rect x="44" y="192" width="1512" height="210" rx="6" fill="url(#g4-meshSheen)"/>
+    <rect x="44" y="192" width="1512" height="210" rx="6" fill="url(#g4-recV)"/>
+    <rect x="44" y="192" width="1512" height="210" rx="6" fill="url(#g4-recH)"/>
+  </g>
+
+  <!-- the front: band + grain as one surface; #g4-fret cuts it at night, the louvre mask by day (style.css) -->
+  <g class="g4-front" mask="url(#g4-fret)">
+    <rect x="0" y="0" width="1600" height="425" fill="url(#g4-band)"/>
+    <rect class="g4-grain" x="0" y="0" width="1600" height="425" filter="url(#g4-nacre)"/>
+  </g>
+
+  <!-- night, over the front: fret cut edges and the panel edge around the opening -->
+  <g class="grate-mesh">
+    <rect x="44" y="192" width="1512" height="210" fill="url(#g4-fretBevel)"/>
+    <rect x="45.5" y="193.5" width="1509" height="207" rx="5" fill="none" stroke="#000" stroke-opacity="0.85" stroke-width="3"/>
+    <rect x="43.4" y="191.4" width="1513.2" height="211.2" rx="6.6" fill="none" stroke="url(#g4-chrome)" stroke-width="1.2" stroke-opacity="0.75"/>
+  </g>
+
+  <!-- day, over the front: louvre cut edges (shadowed top-left rim, lit bottom-right wall) -->
+  <g class="grate-louvre" fill="none">
+    <g stroke="#2a2418" stroke-opacity="0.5" stroke-width="2" transform="translate(-0.8,-0.8)"><use href="#g4-lrow" y="200"/><use href="#g4-lrow" y="226"/><use href="#g4-lrow" y="252"/><use href="#g4-lrow" y="278"/><use href="#g4-lrow" y="304"/><use href="#g4-lrow" y="330"/><use href="#g4-lrow" y="356"/><use href="#g4-lrow" y="382"/></g>
+    <g stroke="#fffdf4" stroke-opacity="0.75" stroke-width="1.5" transform="translate(1,1)"><use href="#g4-lrow" y="200"/><use href="#g4-lrow" y="226"/><use href="#g4-lrow" y="252"/><use href="#g4-lrow" y="278"/><use href="#g4-lrow" y="304"/><use href="#g4-lrow" y="330"/><use href="#g4-lrow" y="356"/><use href="#g4-lrow" y="382"/></g>
+  </g>
+
+  <!-- full-height overlays: band and grate shade as one curved surface -->
+  <rect class="g4-curve-rect g4-curve-day"  x="0" y="0" width="1600" height="425" fill="url(#g4-curve)"/>
+  <rect class="g4-curve-rect g4-curve-nite" x="0" y="0" width="1600" height="425" fill="url(#g4-curve-nite)"/>
+  <rect class="g4-shade-rect" x="0" y="0" width="1600" height="40" fill="url(#g4-shade)"/>
+  <rect class="g4-curve-lo-rect" x="0" y="290" width="1600" height="135" fill="url(#g4-curve-lo)"/>
+
+  <!-- chrome last, so it stays chrome under every overlay -->
+  <use href="#g4-rail" y="414"/>
+
+  <!-- wordmark, dropped to the credits' last baseline; stroked twice — a dark cut line under the chrome so
+       the bars hold an edge on pearloid, and it carries the cast shadow -->
+  <g transform="translate(0 32)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#g4-word" filter="url(#g4-logoShadow)" stroke="#191920" stroke-width="16"/>
+    <use href="#g4-word" filter="url(#g4-logoLight)" stroke="url(#g4-chromeW)" stroke-width="13"/>
+  </g>
+  <g class="g4-credits" font-family="system-ui, sans-serif" text-anchor="end" filter="url(#g4-etch)">
+    <text x="1556" y="129" font-size="16.5">
+      <tspan class="g4-cred-k" font-size="13" letter-spacing="1.6">ENGINE</tspan><tspan dx="9">·</tspan><tspan dx="9">Fable 5</tspan>
+    </text>
+    <text x="1556" y="150" font-size="16.5">
+      <tspan class="g4-cred-k" font-size="13" letter-spacing="1.6">WEBPAGE</tspan><tspan dx="9">·</tspan><tspan dx="9">Opus 5</tspan>
+    </text>
+    <text x="1556" y="171" font-size="16.5">
+      <tspan class="g4-cred-k" font-size="13" letter-spacing="1.6">DESIGN &amp; OVERSIGHT</tspan><tspan dx="9">·</tspan><a href="https://github.com/gbkorr" target="_blank" rel="noopener"><tspan class="g4-link" dx="9" text-decoration="underline">gbkorr</tspan></a>
+    </text>
+  </g>
+  </svg>
+
+  <div id="board">
+  <section id="registers">
+    <div class="octave" id="octL">
+      <div class="oct-pad">
+        <!-- legend + Shift+key hints; the dial face (js/ui/dials.js) is the reading, so no number up here -->
+        <div class="oct-read"><span class="reg-key">M</span><span class="ctl-label oct-name">Oct</span><span class="reg-key">&lt;</span></div>
+        <div class="oct-dial" id="octDialL" tabindex="0" role="slider" aria-label="left hand octave"
+             aria-valuemin="-4" aria-valuemax="4"></div>
+      </div>
+    </div>
+    <div id="regCenter">
+    <div class="reg-group">
+      <span class="reg-title">Manual</span>
+      <div id="regManual" class="switchbank"></div>
+    </div>
+    <div class="reg-divider"></div>
+    <div class="reg-group">
+      <span class="reg-title">Automatic</span>
+      <div id="regPreset" class="switchbank"></div>
+    </div>
+    </div>
+    <div class="octave" id="octR">
+      <div class="oct-pad">
+        <div class="oct-read"><span class="reg-key">&gt;</span><span class="ctl-label oct-name">Oct</span><span class="reg-key">?</span></div>
+        <div class="oct-dial" id="octDialR" tabindex="0" role="slider" aria-label="right hand octave"
+             aria-valuemin="-4" aria-valuemax="4"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="cols">
+    <div class="gutter volume-wrap">
+      <input id="volL" class="volume" type="range" min="0" max="1" step="0.01" value="0.4" orient="vertical" aria-label="left-hand volume">
+      <span class="speaker" aria-hidden="true"><svg viewBox="0 0 20 16"><path d="M2.4 5.6h3L9.4 2.3v11.4L5.4 10.4h-3z"/><path d="M12.5 5.7a3.9 3.9 0 0 1 0 4.6M14.8 3.7a7 7 0 0 1 0 8.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+    </div>
+    <div id="keyboard" class="grid"></div>
+    <div class="gutter volume-wrap">
+      <input id="volR" class="volume" type="range" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="right-hand volume">
+      <span class="speaker" aria-hidden="true"><svg viewBox="0 0 20 16"><path d="M2.4 5.6h3L9.4 2.3v11.4L5.4 10.4h-3z"/><path d="M12.5 5.7a3.9 3.9 0 0 1 0 4.6M14.8 3.7a7 7 0 0 1 0 8.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+    </div>
+  </main>
+
+  <div id="splitRow" class="cols">
+    <span class="gutter"></span>
+    <div id="splitWrap"><span id="splitLabel" class="ctl-label">Key split</span><div id="splitTrack"></div><div id="splitKnob" tabindex="0" role="slider" aria-label="hand split" aria-valuemin="2" aria-valuemax="9">
+      <svg viewBox="0 0 60 30" aria-hidden="true">
+        <defs><linearGradient id="fkBody" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#2b2b31"/><stop offset="0.5" stop-color="#6d6d76"/><stop offset="1" stop-color="#232328"/>
+        </linearGradient></defs>
+        <rect x="1" y="1" width="58" height="28" rx="3.5" fill="url(#fkBody)" stroke="#141416" stroke-width="1"/>
+        <g stroke="#00000055" stroke-width="1">
+          <line x1="8.5" y1="4.5" x2="8.5" y2="25.5"/><line x1="13.5" y1="4.5" x2="13.5" y2="25.5"/><line x1="18.5" y1="4.5" x2="18.5" y2="25.5"/><line x1="23.5" y1="4.5" x2="23.5" y2="25.5"/>
+          <line x1="36.5" y1="4.5" x2="36.5" y2="25.5"/><line x1="41.5" y1="4.5" x2="41.5" y2="25.5"/><line x1="46.5" y1="4.5" x2="46.5" y2="25.5"/><line x1="51.5" y1="4.5" x2="51.5" y2="25.5"/>
+        </g>
+        <rect x="29" y="2.5" width="2" height="25" rx="1" fill="#d9a441"/>
+      </svg>
+    </div></div>
+    <span class="gutter"></span>
+  </div>
+
+  </div>
+</div>
+
+<!-- debug panel (?debug or F9): live sliders writing straight into TUNING — see js/ui/debug.js -->
+<section id="debug" hidden>
+  <div class="debug-head"><span class="ctl-label">Debug — family constants</span>
+    <button id="debugCopy" type="button" title="log + copy the current values as JSON">copy values</button>
+    <button id="debugReset" type="button">reset</button>
+    <button id="debugClose" type="button">close (F9)</button></div>
+  <div id="debugSliders" class="debug-cols"></div>
+  <p class="hint">bend-in = every note starts flat by <i>bend cents</i> and reaches pitch after <i>bend time</i> along (1−x)<sup>curve</sup>
+  (1 = linear rise, 3 = fast start); low reeds add <i>low cents / low time</i>, fully from <i>top − span</i> down, nothing at <i>top</i>;
+  from silence both scale by <i>silent ×</i>. attack ≥ <i>periods</i> cycles of the lowest reed. open: on low reeds the lowpass starts at
+  <i>start harmonic</i> × f0 and opens over <i>open time</i> (the 1–2 kHz formant arriving late). late fundamental: the fundamental starts that many dB
+  down and fills in over its time; mid bump: the harmonics around <i>mid bump harmonic</i> × f0 start that many dB hot and relax over its time
+  (both weighted like the bend's low extra; the bump's centre harmonic is read when the note starts). timbre: steady trims read at note start —
+  a high shelf (dB, from Hz) over the top harmonics, a midrange peak/cut (dB, centre Hz, width Q) and a boost/cut on the fundamental; "low reeds only" weights them like the bend's low extra.</p>
+</section>
+
+<dialog id="infoDialog">
+  <h2>Web-Bayan</h2>
+  <p>A bayan in the browser. All sounds are 100% synthesized based on some recordings I found.</p>
+  <!--<p><a href="https://www.youtube.com/@AccordionsStore/shorts">Demos by</a> by a <a href="https://www.etsy.com/shop/UssrMemorabiliaStore?section_id=29591923">reputable dealer</a></p> -->
+  <p>I've intentionally minimized the labeling, so play around with everything! That's the fun of getting to know a new instrument :)</p>
+  <p class="hint">Keys not working? Most keyboards only recognize 3-6 pressed keys at a time.</p>
+  <div class="dlg-foot"><button id="infoClose" type="button">close</button></div>
+</dialog>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
